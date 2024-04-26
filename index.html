@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script>
+        MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+          }
+        };
+        </script>
+        <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+
+    function evaluar(){
+        pol = document.getElementById("coef").value
+        pol = pol.split(" ")
+        var a = 0
+        var b = 0
+        x = parseFloat(document.getElementById("variable").value)
+        for (n of pol) {
+            b = parseFloat(n)
+            p = x*a+b
+            a = p
+        }
+        document.getElementById("valor").innerHTML = p
+    }
+    
+</script>
+
+<style>
+p {
+    font-size: 40px;
+}
+
+a {
+    font-size: 40px;
+}
+button {
+    background-color: yellow;
+}
+input {
+    background-color: aquamarine;
+}
+
+</style>
+
+</head>
+
+<body>
+<p>Por ejemplo si se quiere evaluar el polinomio $P(x)=a_3x^3+a_2x^2+a_1x+a_0$</p>
+<p>Se debe ingresar los coeficientes así : $a_3 \ \ a_2 \ \ a_1 \ \ a_0 $ </p>
+<p>separados únicamente por un solo espacio.</p>
+<center><a>Coeficientes = </a> <input id="coef" style="font-size: 40px"> </center>
+<br><br>
+<a> Valor de la variable $x$ = </a><input id="variable" style="font-size: 40px;width: 5cm;">
+<br><br>
+<center><button style="font-size: 40px;" onclick="evaluar()">Evaluar polinomio en $x$</button></center>
+<p>El valor del polinomio $P(x)$ evaluado en $x$ es : <a id="valor"></a> </p>
+<center><button style="font-size: 40px;" onclick="window.location.reload()">Nueva Evaluación</button></center>
+
+</body>
+
+</html>
